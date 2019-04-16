@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StoryContent } from './story_content';
 
 import { STORY_CONTENTS } from './sample_contents';
-import { StoryContentService } from '../story-content.service';
+import { StoryContentService } from './story-content.service';
 
 import { STORIES} from './story_list';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -10,6 +10,7 @@ import {StoryContentList} from './story_content_list';
 import {Observable} from 'rxjs';
 import {subscribeOn} from 'rxjs/operators';
 import {MessageService} from '../message.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-story-contents',
@@ -24,6 +25,7 @@ export class StoryContentsComponent implements OnInit {
   currentContent: StoryContent;
 
   constructor(
+    private route: ActivatedRoute,
     private storyContentService: StoryContentService,
     private messageService: MessageService) { }
 
@@ -32,7 +34,8 @@ export class StoryContentsComponent implements OnInit {
   }
 
   getContents(): void {
-    this.storyContentService.getContents(0).subscribe(storyContentList =>
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.storyContentService.getContents(id).subscribe(storyContentList =>
       this.setContents(storyContentList.contents));
   }
 
@@ -40,7 +43,6 @@ export class StoryContentsComponent implements OnInit {
     for (const oneContent of contents) {
       if (oneContent.type === 'COVER' || oneContent.type === 'PAGE') {
         this.storyContents.push(oneContent);
-        console.log(oneContent);
       }
     }
     // this.storyContents = contents;
