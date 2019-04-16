@@ -1,0 +1,95 @@
+.storyContent-wrapper {
+  display: table;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+
+.storyContentList {
+  width: 350px;
+  height: 600px;
+  margin: auto auto;
+  background: #eeeeee;
+  border-radius: 4px;
+  box-shadow: #00000033 0px 4px 4px;
+  float: left;
+  overflow: hidden;
+}
+
+.storyContent {
+  width: 350px;
+  height: 600px;
+  margin: auto auto;
+  background: #eeeeee;
+  box-shadow: #00000033 0px 4px 4px;
+  float: left;
+  display: none;
+}
+
+.storyContent.selected {
+  display: block;
+}
+
+.storyContent img {
+  width: 350px;
+  height: 350px;
+  background: antiquewhite;
+}
+
+.storyContent.COVER {
+  background: blueviolet;
+  color: #ffffff;
+}
+
+.storyContent.COVER img {
+  width: 302px;
+  height: 302px;
+  border-radius: 0;
+  background: blueviolet;
+  margin: 0 auto;
+  padding: 24px 0 0 0;
+  display: block;
+}
+
+.storyContent.COVER  p {
+  font-size: 24pt;
+  font-weight: bold;
+  text-align: center;
+  margin: 1.5em;
+  display: block;
+}
+
+.storyContent p {
+  margin: 1.5em;
+  white-space: pre-wrap;
+}
+
+.navButton {
+  background: whitesmoke;
+  margin: 150px 32px 0;
+  padding: 0px;
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  box-shadow: black 0px 4px 32px;
+  display: block;
+  float: left;
+  cursor: pointer;
+}
+
+.navButton:hover {
+  background: blueviolet;
+}
+
+.prevButton {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background:  url("assets/ui/backButton24.png") no-repeat center;
+}
+
+.nextButton {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background:  url("assets/ui/nextButton24.png") no-repeat center;
+}
