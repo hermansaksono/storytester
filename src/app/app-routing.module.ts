@@ -4,7 +4,8 @@ import { StoryContentsComponent } from './story-contents/story-contents.componen
 
 const routes: Routes = [
   { path: '', redirectTo: '/story/0', pathMatch: 'full' },
-  { path: 'story/:id', component: StoryContentsComponent }
+  { path: 'story/:id', component: StoryContentsComponent },
+  { path: 'story/:id/:mode', component: StoryContentsComponent }
 ];
 
 @NgModule({

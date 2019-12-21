@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { StoryContent } from './story_content';
 
 import { STORY_CONTENTS } from './sample_contents';
@@ -20,6 +20,7 @@ import {ActivatedRoute} from '@angular/router';
 
 export class StoryContentsComponent implements OnInit {
   // storyContents: StoryContentList = this.getStoryContents(STORIES[0]);
+  mode: string;
   storyContents: StoryContent[] = [];
   selectedContentId = 0;
   currentContent: StoryContent;
@@ -30,6 +31,7 @@ export class StoryContentsComponent implements OnInit {
     private messageService: MessageService) { }
 
   ngOnInit() {
+    this.mode = this.route.snapshot.paramMap.get('mode');
     this.getContents();
   }
 
@@ -41,7 +43,7 @@ export class StoryContentsComponent implements OnInit {
 
   setContents(contents: StoryContent[]): void {
     for (const oneContent of contents) {
-      if (oneContent.type === 'COVER' || oneContent.type === 'PAGE') {
+      if (oneContent.type === 'COVER' || oneContent.type === 'PAGE' || oneContent.type === 'REFLECTION' || oneContent.type === 'STATEMENT') {
         this.storyContents.push(oneContent);
       }
     }
