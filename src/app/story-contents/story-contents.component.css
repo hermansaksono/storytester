@@ -77,7 +77,8 @@
 
 .storyContent-wrapper.print .storyContent {
   width: 6.5in;
-  height: 9in;
+  height: auto;
+  background: #ffffff !important;
 }
 
 .storyContent img {
@@ -194,7 +195,7 @@
   width: 56px;
   height: 56px;
   border-radius: 28px;
-  box-shadow: black 0px 4px 32px;
+  box-shadow: #11111199 0px 1px 2px;
   display: block;
   float: left;
   cursor: pointer;

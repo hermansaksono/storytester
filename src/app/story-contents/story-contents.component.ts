@@ -43,12 +43,17 @@ export class StoryContentsComponent implements OnInit {
 
   setContents(contents: StoryContent[]): void {
     for (const oneContent of contents) {
-      if (oneContent.type === 'COVER' || oneContent.type === 'PAGE' || oneContent.type === 'REFLECTION' || oneContent.type === 'STATEMENT') {
+      if (this.isValidContent(oneContent)) {
         this.storyContents.push(oneContent);
       }
     }
     // this.storyContents = contents;
     this.currentContent = this.storyContents[this.selectedContentId];
+  }
+
+  isValidContent(content: StoryContent): boolean {
+    const contentType = content.type;
+    return contentType === 'COVER' || contentType === 'PAGE' || contentType === 'REFLECTION' || contentType === 'STATEMENT';
   }
 
   onGoPrev(): void {
