@@ -4,42 +4,6 @@
   padding: 0 auto;
 }
 
-@media print {
-  html, body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-  }
-}
-
-@media print {
-  .storyContentList.print .storyContent {
-    page-break-after: always;
-    height: 100%;
-    padding: 0;
-    margin: auto auto;
-  }
-}
-
-.storyContent-wrapper.print {
-  width: auto !important;
-  height: auto !important;
-  margin: 0 auto;
-  overflow: visible !important;
-}
-
-.storyContent-wrapper.print .storyContent {
-  display: block !important;
-  box-shadow: none !important;
-  float: none !important;
-}
-
-@media print {
-  .storyContent-wrapper.print .storyContent {
-    page-break-after: always;
-  }
-}
-
 .storyContentList {
   width: 350px;
   height: 600px;
@@ -49,16 +13,6 @@
   box-shadow: #00000033 0px 4px 4px;
   float: left;
   overflow: hidden;
-}
-
-.storyContent-wrapper.print .storyContentList {
-  width: 6.5in;
-  height: 9in;
-  border-radius: 0px !important;
-  box-shadow: none !important;
-  float: none !important;
-  margin: 0 auto;
-  overflow: visible !important;
 }
 
 .storyContent {
@@ -75,23 +29,10 @@
   display: block;
 }
 
-.storyContent-wrapper.print .storyContent {
-  width: 6.5in;
-  height: auto;
-  background: #ffffff !important;
-}
-
 .storyContent img {
   width: 350px;
   height: 350px;
   background: antiquewhite;
-}
-
-.storyContent-wrapper.print .storyContent img {
-  width: 6.5in;
-  height: 6.5in;
-  margin: 0 auto;
-  display: block;
 }
 
  .storyContent p {
@@ -99,21 +40,10 @@
   white-space: pre-wrap;
 }
 
-.storyContent-wrapper.print .storyContent p {
-  font-size: 20pt;
-  width: 6.5in;
-  margin: 1em auto;
-}
-
 .storyContent.COVER {
   background: blueviolet;
   color: #ffffff;
   padding: 24px 0 0 0;
-}
-
-.storyContent-wrapper.print .storyContent.COVER {
-  background: whitesmoke;
-  color: blueviolet
 }
 
 .storyContent.COVER img {
@@ -134,36 +64,15 @@
   display: block;
 }
 
-.storyContent-wrapper.print .storyContent.COVER p {
-  font-size: 36pt;
-}
-
 .storyContent.REFLECTION {
   color: gray();
   font-size: 14pt;
 }
 
-.storyContent.REFLECTION p:before {
-  content: "Can you answer this question?";
-  color: dimgrey;
-  display: block;
-  font-size: 14pt;
-  text-align: center;
-  margin: 0 0 1em 0;
-  padding: 4em 0;
-}
-  .storyContent-wrapper.print .storyContent.REFLECTION p:before {
-    font-size: 16pt;
-  }
-
 .storyContent.REFLECTION p {
   color: blueviolet;
   font-size: 20pt;
   text-align: center;
-}
-
-.storyContent-wrapper.print .storyContent.REFLECTION p {
-  font-size: 32pt;
 }
 
 .storyContent.REFLECTION img {
@@ -177,11 +86,6 @@
   color: black;
   font-size: 20pt;
   text-align: center;
-}
-
-.storyContent-wrapper.print .storyContent.STATEMENT p {
-  padding: 7em 0;
-  font-size: 32pt;
 }
 
 .storyContent.STATEMENT img {
@@ -205,10 +109,6 @@
   background: blueviolet;
 }
 
-.storyContent-wrapper.print .navButton {
-  display: none;
-}
-
 .prevButton {
   width: 56px;
   height: 56px;
@@ -221,4 +121,100 @@
   height: 56px;
   border-radius: 28px;
   background:  url("assets/ui/nextButton24.png") no-repeat center;
+}
+
+@media print {
+
+  html, body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .storyContent-wrapper {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 auto;
+    overflow: visible !important;
+  }
+
+  .storyContentList {
+    width: 6.5in;
+    height: 9in;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    float: none !important;
+    margin: 0 auto;
+    overflow: visible !important;
+  }
+
+  .storyContent {
+    display: block !important;
+    box-shadow: none !important;
+    float: none !important;
+    page-break-after: always;
+    padding: 0;
+    margin: auto auto;
+    width: 6.5in;
+    height: auto;
+    background: #ffffff !important;
+  }
+
+  .storyContent p {
+    font-size: 20pt;
+    width: 6.5in;
+    margin: 1em auto;
+  }
+
+  .storyContent img {
+    width: 6.5in;
+    height: 6.5in;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .storyContent.COVER {
+    background: whitesmoke;
+    color: blueviolet
+  }
+
+  .storyContent.COVER p {
+    font-size: 36pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 1em auto;
+    display: block;
+  }
+
+  .storyContent.COVER img {
+    width: 6in;
+    height: 6in;
+    border-radius: 0;
+    margin: 0 auto;
+    padding: 0;
+    display: block;
+  }
+
+  .storyContent.REFLECTION p {
+    font-size: 54pt;
+  }
+
+  .storyContent.REFLECTION p:before {
+    content: "Can you answer this question?";
+    color: dimgrey;
+    display: block;
+    font-size: 16pt !important;
+    text-align: center;
+    margin: 0 0 1em 0;
+    padding: 4em 0;
+  }
+
+  .storyContent.STATEMENT p {
+    padding: 7em 0;
+    font-size: 32pt;
+  }
+
+  .storyContent-wrapper .navButton {
+    display: none;
+  }
 }
