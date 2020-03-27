@@ -35,7 +35,7 @@
   background: antiquewhite;
 }
 
- .storyContent p {
+.storyContent p {
   margin: 1.5em;
   white-space: pre-wrap;
 }
@@ -75,7 +75,60 @@
   text-align: center;
 }
 
+.storyContent.REFLECTION p.subtext {
+  color: #555555;
+  font-size: 14pt;
+  text-align: left;
+}
+
 .storyContent.REFLECTION img {
+  display: none !important;
+}
+
+.storyContent.REFLECTION .instruction:after {
+  content: "Can your child answer this question?";
+  color: dimgrey;
+  display: block;
+  font-size: 14pt !important;
+  text-align: center;
+  margin: 1em 0 1em 0;
+}
+
+.storyContent.GEOSTORY_SHARING {
+  color: gray();
+  font-size: 14pt;
+}
+
+.storyContent.GEOSTORY_SHARING p {
+  color: blueviolet;
+  font-size: 20pt;
+  text-align: center;
+}
+
+.storyContent.GEOSTORY_SHARING .instruction:after {
+  content: "Parent, can you tell a story using the prompt below? Connecting the book\'s story with your own story can help your child\'s reading skills.";
+  color: #555555;
+  display: block;
+  font-size: 14pt !important;
+  margin: 1em 1.5em 1em 1.5em;
+}
+
+.storyContent.GEOSTORY_SHARING p.subtext {
+  color: #555555;
+  font-size: 12pt;
+  text-align: left;
+  margin: 0.5em 1.5em 0.5em 1.5em;
+}
+
+.storyContent.GEOSTORY_SHARING p.subtext:after {
+  content: "Your story will be shared to inspire other families who use this app. Please make sure you are not sharing any private information.";
+  color: dimgrey;
+  display: block;
+  font-size: 10pt !important;
+  margin: 0.5em 0 0.5em 0;
+ }
+
+.storyContent.GEOSTORY_SHARING img {
   display: none !important;
 }
 
@@ -85,7 +138,15 @@
 .storyContent.STATEMENT p {
   color: black;
   font-size: 20pt;
+  height: 500px;
   text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0.5em 1.5em 0 1.5em;
+}
+
+.storyContent.STATEMENT p.subtext {
+  display: none;
 }
 
 .storyContent.STATEMENT img {
@@ -160,6 +221,15 @@
     background: #ffffff !important;
   }
 
+  .storyContent.COVER:after {
+    content: "Created by the Wellness Technology Lab. For a recommended citation, please see github.com/WellnessLab/storywell_content. This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. This material is based upon work supported by the National Science Foundation under Grant Number #1618406.";
+    text-align: center !important;
+    font-size: 10pt;
+    padding: 0em 1em;
+    display: block;
+    color: #222222;
+  }
+
   .storyContent p {
     font-size: 20pt;
     width: 6.5in;
@@ -171,6 +241,7 @@
     height: 6.5in;
     margin: 0 auto;
     display: block;
+    border-radius: 0.5em;
   }
 
   .storyContent.COVER {
@@ -183,35 +254,35 @@
     font-weight: bold;
     text-align: center;
     margin: 1em auto;
+    padding: 0;
+    line-height: 1em;
     display: block;
   }
 
   .storyContent.COVER img {
-    width: 6in;
-    height: 6in;
-    border-radius: 0;
+    width: 6.5in;
+    height: 6.5in;
+    border-radius: 1em;
     margin: 0 auto;
     padding: 0;
     display: block;
   }
 
   .storyContent.REFLECTION p {
-    font-size: 54pt;
+    font-size: 42pt;
   }
 
-  .storyContent.REFLECTION p:before {
-    content: "Can you answer this question?";
-    color: dimgrey;
-    display: block;
-    font-size: 16pt !important;
-    text-align: center;
-    margin: 0 0 1em 0;
-    padding: 4em 0;
+  .storyContent.GEOSTORY_SHARING p {
+    font-size: 42pt;
   }
 
   .storyContent.STATEMENT p {
-    padding: 7em 0;
+    padding: 5em 0 3em 0;
     font-size: 32pt;
+  }
+
+  .storyContent.STATEMENT p.subtext {
+    display: none;
   }
 
   .storyContent-wrapper .navButton {

@@ -52,8 +52,8 @@ export class StoryContentsComponent implements OnInit {
   }
 
   isValidContent(content: StoryContent): boolean {
-    const contentType = content.type;
-    return contentType === 'COVER' || contentType === 'PAGE' || contentType === 'REFLECTION' || contentType === 'STATEMENT';
+    const type = content.type;
+    return type === 'COVER' || type === 'PAGE' || type === 'REFLECTION' || type === 'STATEMENT' || type === 'GEOSTORY_SHARING';
   }
 
   onGoPrev(): void {

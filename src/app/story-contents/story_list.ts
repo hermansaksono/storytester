@@ -1,14 +1,14 @@
 export const STORIES: string[] = [
-  'assets/eli_CP.json',
-  'assets/unicorn_CP.json',
-  'assets/cobby_CP.json',
-  'assets/boomerang_CP.json',
-  'assets/sloth_CP.json',
-  'assets/leon_CP.json',
-  'assets/flamingo_CP.json',
-  'assets/fish_CP.json',
+  'assets/eli_v2_00.json',
+  'assets/unicorn_v2_00.json',
+  'assets/cobby_v2_00.json',
+  'assets/boomerang_v2_00.json',
+  'assets/sloth_v2_00.json',
+  'assets/leon_v2_00.json',
+  'assets/flamingo_v2_00.json',
+  'assets/fish_v2_00.json',
 ]
 
 export const STORY_NAMES = {
-  'test': 1
+  test: 1
 }
