@@ -1,14 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import { StoryContent } from './story_content';
 
-import { STORY_CONTENTS } from './sample_contents';
 import { StoryContentService } from './story-content.service';
 
-import { STORIES} from './story_list';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {StoryContentList} from './story_content_list';
-import {Observable} from 'rxjs';
-import {subscribeOn} from 'rxjs/operators';
+import { Location } from '@angular/common';
 import {MessageService} from '../message.service';
 import {ActivatedRoute} from '@angular/router';
 
@@ -22,44 +17,56 @@ export class StoryContentsComponent implements OnInit {
   // storyContents: StoryContentList = this.getStoryContents(STORIES[0]);
   mode: string;
   storyContents: StoryContent[] = [];
+  selectedStory: number;
   selectedContentId = 0;
   currentContent: StoryContent;
 
   constructor(
     private route: ActivatedRoute,
+    private location: Location,
     private storyContentService: StoryContentService,
     private messageService: MessageService) { }
 
+  static isValidContent(content: StoryContent): boolean {
+    switch (content.type) {
+      case 'COVER':
+      case 'PAGE':
+      case 'REFLECTION':
+      case 'STATEMENT':
+      case 'GEOSTORY_SHARING':
+        return true;
+      default:
+        return false;
+    }
+  }
+
   ngOnInit() {
     this.mode = this.route.snapshot.paramMap.get('mode');
+    this.selectedStory = +this.route.snapshot.paramMap.get('id');
+    this.selectedContentId = this.getSelectedContentId();
     this.getContents();
+    this.updateLocation();
   }
 
   getContents(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.storyContentService.getContents(id).subscribe(storyContentList =>
+    this.storyContentService.getContents(this.selectedStory).subscribe(storyContentList =>
       this.setContents(storyContentList.contents));
   }
 
   setContents(contents: StoryContent[]): void {
     for (const oneContent of contents) {
-      if (this.isValidContent(oneContent)) {
+      if (StoryContentsComponent.isValidContent(oneContent)) {
         this.storyContents.push(oneContent);
       }
     }
-    // this.storyContents = contents;
     this.currentContent = this.storyContents[this.selectedContentId];
-  }
-
-  isValidContent(content: StoryContent): boolean {
-    const type = content.type;
-    return type === 'COVER' || type === 'PAGE' || type === 'REFLECTION' || type === 'STATEMENT' || type === 'GEOSTORY_SHARING';
   }
 
   onGoPrev(): void {
     if (this.selectedContentId > 0) {
       this.selectedContentId -= 1;
       this.currentContent = this.storyContents[this.selectedContentId];
+      this.updateLocation();
     }
   }
 
@@ -67,7 +74,23 @@ export class StoryContentsComponent implements OnInit {
     if (this.selectedContentId < this.storyContents.length - 1) {
       this.selectedContentId += 1;
       this.currentContent = this.storyContents[this.selectedContentId];
+      this.updateLocation();
     }
   }
 
+  private updateLocation(): void {
+    this.location.replaceState(this.getPath());
+  }
+
+  private getPath(): string {
+    return '/story/' + this.selectedStory + '/page/' + this.selectedContentId;
+  }
+
+  private getSelectedContentId(): number {
+    if (this.route.snapshot.paramMap.has('page')) {
+      return +this.route.snapshot.paramMap.get('page');
+    } else {
+      return 0;
+    }
+  }
 }
